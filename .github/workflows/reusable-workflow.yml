@@ -7,6 +7,9 @@ jobs:
   build:
     runs-on: ubuntu-latest # self-hosted
     steps:
+      - name: Start workflow
+        run:
+          echo Workflow is starting
       - name: Run processing
         env:
           DIANNA_URL: 'https://http.cat'
@@ -15,3 +18,6 @@ jobs:
           curl -s -H "Content-Type: application/json" \
           -u "":$DIANNA_TOKEN \
           -X POST ${DIANNA_URL}/202
+      - name: Workflow finished
+        run:
+          echo Workflow is finished
