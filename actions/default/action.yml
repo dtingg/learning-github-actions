@@ -16,4 +16,4 @@ runs:
       run: ./goodbye.sh
       shell: bash
     - name: Run .github reusable workflow
-      uses: dtingg/learning-github-actions/actions/reusable@main
+      uses: ./actions/reusable
