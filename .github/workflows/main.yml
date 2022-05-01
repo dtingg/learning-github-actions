@@ -10,5 +10,3 @@ jobs:
         uses: ./actions/default
         with:
           who-to-greet: 'Dianna'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
-        shell: bash
