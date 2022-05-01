@@ -1,14 +1,8 @@
 name: "Reusable composite action"
-
 description: "Run build process"
-
 runs:
   using: "composite"
   steps:
-    - name: Start workflow
-      run:
-        echo Workflow is starting
-      shell: bash
     - name: Run processing
       env:
         DIANNA_URL: 'https://http.cat'
@@ -17,8 +11,4 @@ runs:
         curl -s -H "Content-Type: application/json" \
         -u "":$DIANNA_TOKEN \
         -X POST ${DIANNA_URL}/202
-      shell: bash
-    - name: Workflow finished
-      run:
-        echo Workflow is finished
       shell: bash
