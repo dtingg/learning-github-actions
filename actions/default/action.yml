@@ -8,8 +8,12 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: echo Hello ${{ inputs.who-to-greet }}.
+    - uses: actions/checkout@v3
+    - name: Say hello
+      run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
-    - run: ./goodbye.sh
+    - name: Say goodbye
+      run: ./goodbye.sh
       shell: bash
-    - uses: dtingg/learning-github-actions/.github/workflows/reusable-workflow.yml
+    - name: Run reusable workflow
+      uses: dtingg/learning-github-actions/.github/workflows/reusable-workflow.yml
