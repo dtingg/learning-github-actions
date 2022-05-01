@@ -17,5 +17,3 @@ runs:
       shell: bash
     - name: Run .github reusable workflow
       uses: ./actions/reusable
-    # - name: Run actions reusable workflow
-    #   uses: dtingg/learning-github-actions/actions/reusable

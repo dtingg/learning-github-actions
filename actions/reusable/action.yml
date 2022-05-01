@@ -2,7 +2,7 @@ name: "Reusable composite action"
 
 description: "Run build process"
 
-inputs:
+secrets:
   token:
     description: 'Token for secret stuff'
     required: true
@@ -18,7 +18,7 @@ runs:
     - name: Run processing
       env:
         DIANNA_URL: 'https://http.cat'
-        DIANNA_TOKEN: ${{ secrets.DIANNA_TOKEN }}
+        DIANNA_TOKEN: ${{ secrets.token }}
       run: |
         curl -s -H "Content-Type: application/json" \
         -u "":$DIANNA_TOKEN \
