@@ -15,5 +15,7 @@ runs:
     - name: Say goodbye
       run: ./goodbye.sh
       shell: bash
-    - name: Run reusable workflow
-      uses: ./actions/reusable@main
+    - name: Run .github reusable workflow
+      uses: dtingg/learning-github-actions/.github/workflows/reusable-workflow.yml@main
+    - name: Run actions reusable workflow
+      uses: dtingg/learning-github-actions/actions/reusable
