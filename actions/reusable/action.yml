@@ -1,23 +1,25 @@
-name: Reusable workflow
+name: Reusable composite action
+description: Run process
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
 
-on:
-  workflow_call:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest # self-hosted
-    steps:
-      - name: Start workflow
-        run:
-          echo Workflow is starting
-      - name: Run processing
-        env:
-          DIANNA_URL: 'https://http.cat'
-          DIANNA_TOKEN: ${{ secrets.DIANNA_TOKEN }}
-        run:  |
-          curl -s -H "Content-Type: application/json" \
-          -u "":$DIANNA_TOKEN \
-          -X POST ${DIANNA_URL}/202
-      - name: Workflow finished
-        run:
-          echo Workflow is finished
+runs:
+  using: "composite"
+  steps:
+    - name: Start workflow
+      run:
+        echo Workflow is starting
+    - name: Run processing
+      env:
+        DIANNA_URL: 'https://http.cat'
+        DIANNA_TOKEN: ${{ secrets.DIANNA_TOKEN }}
+      run:  |
+        curl -s -H "Content-Type: application/json" \
+        -u "":$DIANNA_TOKEN \
+        -X POST ${DIANNA_URL}/202
+    - name: Workflow finished
+      run:
+        echo Workflow is finished
