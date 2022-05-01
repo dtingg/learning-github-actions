@@ -1,15 +1,17 @@
-name: Reusable workflow example
+name: Reusable workflow
 
 on:
   workflow_call:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # self-hosted
     steps:
       - name: Run processing
         env:
-          DIANNA_URL: 'https://http.cat/202'
+          DIANNA_URL: 'https://http.cat'
           DIANNA_TOKEN: ${{ secrets.DIANNA_TOKEN }}
-        run:
-          curl -I ${DIANNA_URL}
+        run:  |
+          curl -s -H "Content-Type: application/json" \
+          -u "":$DIANNA_TOKEN \
+          -X POST ${DIANNA_URL}/202
