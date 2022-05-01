@@ -12,6 +12,4 @@ runs:
       shell: bash
     - run: ./goodbye.sh
       shell: bash
-jobs:
-  call-reusable-workflow:
-    uses: dtingg/learning-github-actions/.github/workflows/reusable-workflow.yml@main
+    - uses: ./.github/workflows/reusable-workflow.yml
